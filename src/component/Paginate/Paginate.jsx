@@ -8,17 +8,25 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   }
 
   return (
-    <ul className="pagination">
-      {pageNumbers.map(number => (
-        <li
-          key={number}
-          className={currentPage === number ? 'active' : ''}
-          onClick={() => onPageChange(number)}
-        >
-          {number}
+    <nav aria-label="Page navigation example">
+      <ul className="pagination justify-content-end">
+        <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+          <button className="page-link" onClick={() => onPageChange(currentPage - 1)}>Previous</button>
         </li>
-      ))}
-    </ul>
+        {pageNumbers.map(number => (
+          <li
+            key={number}
+            className={`page-item ${currentPage === number ? 'active' : ''}`}
+            onClick={() => onPageChange(number)}
+          >
+            <button className="page-link">{number}</button>
+          </li>
+        ))}
+        <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+          <button className="page-link" onClick={() => onPageChange(currentPage + 1)}>Next</button>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

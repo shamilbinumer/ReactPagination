@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import prod1 from '../public/prod1.png'; // Import image file correctly
 import './App.css';
 import Pagination from './component/Paginate/Paginate';
